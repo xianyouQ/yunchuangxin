@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_menu_functions"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+    android:background="@drawable/search_weibo_bg_press">
+    
+    <TextView 
+        android:id="@+id/item_menu_func_del"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:text="删除"
+        android:textSize="10pt"
+        />
+
+</LinearLayout>
