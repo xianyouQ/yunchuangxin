@@ -45,7 +45,7 @@ public class SDCache {
 	 *            商店ID
 	 * @return 包含所有商店信息的实体类
 	 */
-	public ShopInfo getShopInfo(int shopId) {
+	public ShopInfo getCacheShopInfo(int shopId) {
 		ShopInfo shopInfo = new ShopInfo();
 		// 设置key值
 		String nameKey = shopId + "name";
@@ -62,7 +62,7 @@ public class SDCache {
 		String shopAddress = shopPref.getString(addressKey, null);
 		String shopIntroduce = shopPref.getString(introduceKey, null);
 		String shopPftIntroduce = shopPref.getString(pftIntroduceKey, null);
-		Bitmap shopPicture = getShopPic(picPath);
+		Bitmap shopPicture = getCacheShopPic(picPath);
 		// 放到类中
 		shopInfo.setShopId(shopId);
 		shopInfo.setShopName(shopName);
@@ -79,7 +79,7 @@ public class SDCache {
 	 *            图片在SD卡保存路径
 	 * @return 店铺图片
 	 */
-	private Bitmap getShopPic(String picPath) {
+	private Bitmap getCacheShopPic(String picPath) {
 		try {
 			File shopPic = new File(picPath);
 			InputStream inputStream = null;
@@ -98,7 +98,7 @@ public class SDCache {
 	 *            将要保存在本地的shopInfoList
 	 * @功能 将店铺信息保存在本地
 	 */
-	public void setShopInfo(ArrayList<ShopInfo> shopInfoList) {
+	public void setCacheShopInfo(ArrayList<ShopInfo> shopInfoList) {
 		for (int i = 0; i < shopInfoList.size(); i++) {
 			ShopInfo shopInfo = shopInfoList.get(i);
 			int shopId = shopInfo.getShopId();
@@ -149,7 +149,7 @@ public class SDCache {
 	 *            服务器获取的更新时间，用于判断是否需要更新
 	 * @return 最新数据返回true， 不是最新数据返回false
 	 */
-	public boolean isTheLatestData(String updateTime) {
+	public boolean isTheLatestCacheData(String updateTime) {
 		String locUpdateTime = shopPref.getString(Constants.UPDATE_TIME_KEY,
 				null);
 		if (updateTime.equals(locUpdateTime)) {

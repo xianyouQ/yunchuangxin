@@ -74,7 +74,7 @@ public class PreferentialActivity extends Activity {
 
 		for (int i = 0; i < shopIdList.size(); i++) {
 			ShopInfo shopInfo = new ShopInfo();
-			shopInfo = sdCache.getShopInfo(shopIdList.get(i));
+			shopInfo = sdCache.getCacheShopInfo(shopIdList.get(i));
 			list.add(shopInfo);
 		}
 
